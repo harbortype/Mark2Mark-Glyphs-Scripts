@@ -25,11 +25,13 @@ Selection = Font.selectedLayers
 listOfGlyphNames = [ x.parent.name for x in Selection ]
 
 if len(listOfGlyphNames) == 2:
+    Font.disableUpdateInterface()
     Selection[1].parent.name = "Temp"
 
     print (listOfGlyphNames)
     Selection[0].parent.name = listOfGlyphNames[1]
     Selection[1].parent.name = listOfGlyphNames[0]
+    Font.enableUpdateInterface()
 else:
     #pass
     # from robofab.interface.all.dialogs import Message
